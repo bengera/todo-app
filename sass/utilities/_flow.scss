@@ -1,0 +1,11 @@
+// targets direct children of elements with class of flow (excluding the first child)
+// default of 1 rem
+
+.flow > *:where(:not(:first-child)) {
+    margin-top: var(--flow-spacer, 1rem);
+  }
+
+//   .flow[data-spacing="small"] {
+//     --flow-spacer: .25rem;
+//   }
+  
