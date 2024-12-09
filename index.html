@@ -8,7 +8,7 @@
     <script type="module" src="main.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/sass/main.scss">
   </head>
   <body>
@@ -16,11 +16,20 @@
 
       <div class="master-container">
           <header class="header"></header>
+
           <div class="app">
-            <form class="form">
-              <label for="task-input">New Task</label>
+            <div class="app-inner">
+            <h1 class="uppercase">Todo</h1>
+             <form class="form">
+              <label for="task-input"></label>
+              <div class="task-input-wrapper">
+              <input type="text" placeholder="Create a new todo..." id="add-task">
+            </div>
             </form>
-          </div>
+          </div> <!--app-inner end-->
+          </div> <!--app end-->
+
+
       </div>
     
             
