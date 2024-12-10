@@ -81,13 +81,11 @@ input {
   padding-left: 4rem;
   border: 0;
   color: $color-grey-dark;
-
-  
 }
 
-input[type="radio"]:checked{
-   background: linear-gradient(to bottom right, #63B4FF, #A057FF);
-    border: 0;
+input[type="radio"]:checked {
+  background: linear-gradient(to bottom right, #63b4ff, #a057ff);
+  border: 0;
 }
 
 .tasks {
@@ -108,21 +106,22 @@ input[type="radio"]:checked{
   }
 
   &__item-block {
-    padding: 0.3rem;
+    // padding: 0.3rem;
   }
 
   &__inner-item-block {
     display: flex;
     justify-content: space-between;
-        border-bottom: 1px solid $color-grey-line;
+    border-bottom: 1px solid rgb(209, 209, 209);
   }
 
   &__left-block-content {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    padding: 1.5rem 0 1.5rem 1.2rem;
+    gap: 1rem;
     width: 100%;
-    padding: 1rem;
+    align-items: center;
   }
 
   &__text {
@@ -135,14 +134,13 @@ input[type="radio"]:checked{
     background-repeat: no-repeat;
     background-color: transparent;
     background-position: center;
-    align-self: start; // aligns to top for longer tasks
+    align-self: center;
     border: 0;
     width: 25px;
     height: 25px;
     cursor: pointer;
+    margin-right: 1rem;
   }
-
-  
 }
 
 input[type="radio"] {
@@ -152,15 +150,14 @@ input[type="radio"] {
   width: 1.5em;
   height: 1.5em;
   border-radius: 50%;
-  border: 2px solid rgb(51, 49, 49);
+  border: 1px solid rgb(209, 209, 209);
   cursor: pointer;
   transform: translateY(-0.075em);
- 
 }
 
 input[type="radio"]::before {
   content: "";
-  color: #FFF;
+  color: #fff;
   width: 1.5em;
   height: 1.5em;
   border-radius: 50%;
@@ -169,7 +166,6 @@ input[type="radio"]::before {
   position: absolute;
   left: 4px;
   top: 4px;
-
 }
 
 input[type="radio"]:checked::before {
@@ -177,11 +173,7 @@ input[type="radio"]:checked::before {
   content: "✔";
   top: 4px;
   left: 5px;
-  
-  
 }
-
-
 
 //PUT THIS IN VENDOR
 .truncate {
@@ -191,6 +183,5 @@ input[type="radio"]:checked::before {
   -webkit-line-clamp: 4; /* number of lines to show */
   line-clamp: 4;
   -webkit-box-orient: vertical;
-  max-width: 20ch;
+  max-width: 27ch;
 }
-
