@@ -13,7 +13,6 @@ h1 {
   font-weight: $fw-700;
 }
 
-
 .header {
   position: relative;
   background-image: url(/assets/bg-desktop-light.jpg);
@@ -29,7 +28,7 @@ h1 {
   position: absolute;
   top: 10px;
   left: 0;
-  right: 0; 
+  right: 0;
   max-width: 450px;
 }
 
@@ -48,17 +47,16 @@ h1 {
   margin-bottom: 25px;
 }
 
-.btn-theme-switcher{
+.btn-theme-switcher {
   background-image: url(/assets/icon-moon.svg);
   height: 20px;
   width: 20px;
   padding: 1rem;
   align-self: center;
-  border:0;
+  border: 0;
   background-color: transparent;
   background-repeat: no-repeat;
   cursor: pointer;
-  
 }
 
 .task-input-wrapper {
@@ -87,14 +85,14 @@ input {
 
 .tasks {
   padding: 1.5rem;
-  background-color: #FFF;
+  background-color: #fff;
   margin-top: 16px;
   color: $color-blue;
   border-radius: 10px;
 
   // border: 1px solid rgb(32, 32, 32);
 
-  &__list{
+  &__list {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -106,21 +104,19 @@ input {
     justify-content: space-between;
   }
 
-  &__left-block-content{
+  &__left-block-content {
     display: flex;
     flex-direction: row;
     justify-content: space-aroundW;
-    
-     
   }
 
   &__text {
     margin-left: 1rem;
-   cursor: pointer;
+    cursor: pointer;
   }
 
   &__btn-delete {
-    background-image: url('/assets/icon-cross.svg');
+    background-image: url("/assets/icon-cross.svg");
     background-repeat: no-repeat;
     background-color: transparent;
     background-position: center;
@@ -129,34 +125,59 @@ input {
     width: 25px;
     height: 25px;
     cursor: pointer;
-    
-   
-  
   }
 
-  &__item-text{
-
+  &__item-text {
   }
-
 }
-
-
 
 // Radio buttons
-input:is([type="radio"]){
-  width: 25px;
-  height: 25px;
+// input:is([type="radio"]){
+//   width: 25px;
+//   height: 25px;
+//   cursor: pointer;
+// }
+
+input[type="radio"] {
+  appearance: none;
+  margin: 0; // not removed via appearance
+  background-color: #fff;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  border: 2px solid rgb(51, 49, 49);
   cursor: pointer;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center; //centers circle inside button
+  background-image: url("/assets/icon-check.svg"); /* Path to your image */
 }
 
+input[type="radio"]::before {
+  content: "";
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+ 
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+  content: "✔";
+}
 
 //PUT THIS IN VENDOR
 .truncate {
   overflow: hidden;
-  text-overflow: ellipsis; // adds 3 dots at end 
+  text-overflow: ellipsis; // adds 3 dots at end
   display: -webkit-box;
   -webkit-line-clamp: 4; /* number of lines to show */
-          line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   max-width: 20ch;
 }
