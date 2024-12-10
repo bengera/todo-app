@@ -84,7 +84,7 @@ input {
 }
 
 .tasks {
-  padding: 1.5rem;
+  // padding: 1.5rem;
   background-color: #fff;
   margin-top: 16px;
   color: $color-blue;
@@ -96,18 +96,25 @@ input {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    // gap: 1rem;
   }
 
   &__item-block {
+    padding: 0.3rem;
+  }
+
+  &__inner-item-block {
     display: flex;
     justify-content: space-between;
+        border-bottom: 1px solid $color-grey-line;
   }
 
   &__left-block-content {
     display: flex;
     flex-direction: row;
-    justify-content: space-aroundW;
+    justify-content: space-around;
+    width: 100%;
+    padding: 1rem;
   }
 
   &__text {
@@ -127,16 +134,8 @@ input {
     cursor: pointer;
   }
 
-  &__item-text {
-  }
+  
 }
-
-// Radio buttons
-// input:is([type="radio"]){
-//   width: 25px;
-//   height: 25px;
-//   cursor: pointer;
-// }
 
 input[type="radio"] {
   appearance: none;
@@ -170,6 +169,8 @@ input[type="radio"]:checked::before {
   transform: scale(1);
   content: "✔";
 }
+
+
 
 //PUT THIS IN VENDOR
 .truncate {
