@@ -96,14 +96,26 @@ input {
 
   &__list{
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
   }
 
-  &__item-block{
+  &__item-block {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left-block-content{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-aroundW;
     
-    // border: 1px solid red;
+     
+  }
+
+  &__text {
+    margin-left: 1rem;
   }
 
   &__btn-delete {
@@ -111,6 +123,7 @@ input {
     background-repeat: no-repeat;
     background-color: transparent;
     background-position: center;
+    align-self: start; // aligns to top for longer tasks
     border: 0;
     width: 25px;
     height: 25px;
@@ -134,3 +147,29 @@ input:is([type="radio"]){
   height: 25px;
   cursor: pointer;
 }
+
+
+//PUT THIS IN VENDOR
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis; // adds 3 dots at end 
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+          line-clamp: 4;
+  -webkit-box-orient: vertical;
+  max-width: 20ch;
+}
+
+/*
+overflow: hidden;
+
+text-overflow: ellipsis; - optional, it will add three dots at the end of the trimmed line
+
+display: -webkit-box;
+
+-webkit-line-clamp: 2; - here we can specify how many lines we want to show to the user
+
+line-clamp: 2;
+
+-webkit-box-orient: vertical;
+*/
