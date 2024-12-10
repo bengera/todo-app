@@ -1,54 +1,73 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo-app</title>
-    <script type="module" src="main.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/sass/main.scss">
-  </head>
-  <body>
-   
 
-      <div class="master-container">
-          <header class="header"></header>
-          <div class="app mx-auto">
-            <div class="app-inner">
-              <div class="top-wrapper">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/vite.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo-app</title>
+  <script type="module" src="main.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/sass/main.scss">
+</head>
+
+<body>
+
+  <div class="master-container">
+    <main>
+      <header class="header"></header>
+      <div class="app mx-auto">
+        <div class="app-inner">
+          <div class="top-wrapper">
             <h1 class="uppercase">Todo</h1>
             <button class="btn-theme-switcher"></button>
           </div><!--top wrapper end-->
-             <form class="form">
-              <label for="task-input"></label>
-              <div class="task-input-wrapper">
+          <form class="form">
+            <!-- <label for="task-input"></label> -->
+            <div class="task-input-wrapper">
               <input type="text" placeholder="Create a new todo..." id="add-task">
-              
-            </div>
-            </form>
-          </div> <!--app-inner end-->
-          </div> <!--app end-->
+            </div> <!--input task-wrapper-end-->
+
+            <div class="tasks">
+
+              <div class="tasks__list">
+
+                <div class="tasks__item-block">
+                  <input type="radio" id="radio-btn" name="radio">
+                  <label for="radio02">Jog around the park 3x</label>
+                  <button class="tasks__btn-delete"></button>
+                </div>
+
+              </div>
+
+            </div> <!--tasks end-->
 
 
-      </div>
-    
-            
-           
-        
-     
- 
+          </form>
+        </div> <!--app-inner end-->
+      </div> <!--app end-->
+
+    </main>
+  </div>
 
 
 
 
-   
-    
 
 
 
-   
-  </body>
+
+
+
+
+
+
+
+
+
+</body>
+
 </html>
