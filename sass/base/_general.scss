@@ -13,12 +13,13 @@ h1 {
   font-weight: $fw-700;
 }
 
+
 .header {
   position: relative;
   background-image: url(/assets/bg-desktop-light.jpg);
   background-position: top;
   background-repeat: no-repeat;
-  height: 220px;
+  height: 240px;
   // background-size: 100vw; // desktop
   // border: 2px solid red;
 }
@@ -27,13 +28,17 @@ h1 {
   padding: 1rem;
   position: absolute;
   top: 10px;
+  left: 0;
+  right: 0; 
+  max-width: 450px;
 }
 
 .app-inner {
+  padding: 0.6rem;
+  margin-top: 2rem;
+  // height: 600px; // temp height
+  // border: 2px solid black;
   // background-color: hotpink;
-  padding: 1rem;
-  border: 2px solid black;
-  height: 600px; // temp height
 }
 
 .top-wrapper {
@@ -52,6 +57,7 @@ h1 {
   border:0;
   background-color: transparent;
   background-repeat: no-repeat;
+  cursor: pointer;
   
 }
 
