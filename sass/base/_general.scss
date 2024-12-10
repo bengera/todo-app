@@ -9,7 +9,7 @@ body {
 }
 
 h1 {
-  letter-spacing: 5px;
+  letter-spacing: 10px;
   font-weight: $fw-700;
 }
 
@@ -18,7 +18,7 @@ h1 {
   background-image: url(/assets/bg-desktop-light.jpg);
   background-position: top;
   background-repeat: no-repeat;
-  height: 200px;
+  height: 220px;
   // background-size: 100vw; // desktop
   // border: 2px solid red;
 }
@@ -34,6 +34,25 @@ h1 {
   padding: 1rem;
   border: 2px solid black;
   height: 600px; // temp height
+}
+
+.top-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.btn-theme-switcher{
+  background-image: url(/assets/icon-moon.svg);
+  height: 20px;
+  width: 20px;
+  padding: 1rem;
+  align-self: center;
+  border:0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  
 }
 
 .task-input-wrapper {
@@ -60,20 +79,3 @@ input {
   color: $color-grey-dark;
 }
 
-// &::before {
-//   height: 25px;
-//   width: 25px;
-//   content: '';
-//   border-radius: 50%;
-//   background-color: red;
-
-// }
-
-// .app {
-//   position: absolute;
-//   border: 2px solid rgb(0, 255, 21);
-//   top: 5%;
-//   left: 50%;
-//   transform: translate(-50%, 120%);
-//   width: 90%;
-//  }
