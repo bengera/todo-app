@@ -16,7 +16,7 @@
     "vite-plugin-purgecss": "^0.2.12"
   },
   "dependencies": {
-    "postcss-preset-env": "^10.1.1",
-    "rollup": "^4.28.1"
+    "postcss-preset-env": "^10.1.1"
+    
   }
 }
