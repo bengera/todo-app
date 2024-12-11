@@ -6,6 +6,8 @@ body {
   font-size: fs(400);
   color: $color-grey;
   line-height: 1.5;
+  background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(231,230,230,1) 50%, rgba(255,255,255,1) 100%);
 }
 
 h1 {
@@ -143,7 +145,7 @@ input[type="checkbox"]:checked {
     width: 25px;
     height: 25px;
     cursor: pointer;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
   }
 }
 
@@ -176,11 +178,33 @@ input[type="checkbox"]:checked + label {
   color: rgba(207, 206, 206, 0.795);
 }
 
-
-
-
 #add-task {
   width: 100%;
   font-size: 16px;
   color: rgb(22, 22, 22);
+}
+
+// BOTTOM BAR
+.bottom-bar-mobile {
+  display: flex;
+  justify-content: space-between;
+  color: #afafaf;
+  font-size: 12px;
+  padding: 1.5rem 1.2rem;
+  background-color: #FFF;
+  border-radius: 10px;
+  
+
+  &__items-left {
+    
+  }
+
+  &__btn-clear {
+    border: 0;
+    background-color: transparent;
+    color:inherit;
+    cursor: pointer;
+  }
+
+ 
 }
