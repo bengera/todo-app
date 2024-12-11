@@ -184,7 +184,7 @@ input[type="checkbox"]:checked + label {
   color: rgb(22, 22, 22);
 }
 
-// BOTTOM BAR
+// BOTTOM BAR MOBILE
 .bottom-bar-mobile {
   display: flex;
   justify-content: space-between;
@@ -194,17 +194,33 @@ input[type="checkbox"]:checked + label {
   background-color: #FFF;
   border-radius: 10px;
   
-
-  &__items-left {
-    
-  }
-
-  &__btn-clear {
-    border: 0;
-    background-color: transparent;
-    color:inherit;
-    cursor: pointer;
-  }
+ 
 
  
+}
+
+.sorting-bar-mobile {
+  margin-top: 1rem;
+  background-color: #FFF;
+  font-size: 14px;
+  color: #9495A5;
+  font-weight: $fw-700;
+  padding: 1rem;
+  border-radius: 10px;
+
+  &__buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+
+// UTILITY
+
+.btn-remove-style {
+  border: 0;
+  background-color: transparent;
+  color:inherit;
+  cursor: pointer;
 }
