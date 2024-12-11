@@ -23,6 +23,10 @@ h1 {
   // border: 2px solid red;
 }
 
+::placeholder {
+  color:rgb(201, 201, 201);
+}
+
 .app {
   padding: 1rem;
   position: absolute;
@@ -69,7 +73,7 @@ h1 {
     content: "";
     border-radius: 50%;
     top: 28%;
-    left: 7%;
+    left: 5%;
     border: 1px solid $color-grey;
   }
 }
@@ -150,7 +154,7 @@ input[type="checkbox"] {
   width: 1.5em;
   height: 1.5em;
   border-radius: 50%;
-  border: 1px solid rgb(209, 209, 209);
+  border: 1px solid rgba(209, 209, 209, 0.67);
   cursor: pointer;
   transform: translateY(-0.075em);
   
@@ -174,17 +178,9 @@ input[type="checkbox"]:checked + label {
 
 
 
-//PUT THIS IN VENDOR
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis; // adds 3 dots at end
-  display: -webkit-box;
-  -webkit-line-clamp: 4; /* number of lines to show */
-  line-clamp: 4;
-  -webkit-box-orient: vertical;
-  max-width: 27ch;
-}
 
 #add-task {
   width: 100%;
+  font-size: 16px;
+  color: rgb(22, 22, 22);
 }

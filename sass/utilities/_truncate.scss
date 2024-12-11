@@ -1,0 +1,9 @@
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis; // adds 3 dots at end
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    max-width: 27ch;
+  }
