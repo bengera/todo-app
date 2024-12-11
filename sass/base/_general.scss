@@ -75,7 +75,7 @@ h1 {
 }
 
 input {
-  width: 100%;
+  
   padding: 1.3rem;
   border-radius: 5px;
   padding-left: 4rem;
@@ -83,7 +83,7 @@ input {
   color: $color-grey-dark;
 }
 
-input[type="radio"]:checked {
+input[type="checkbox"]:checked {
   background: linear-gradient(to bottom right, #63b4ff, #a057ff);
   border: 0;
 }
@@ -143,7 +143,7 @@ input[type="radio"]:checked {
   }
 }
 
-input[type="radio"] {
+input[type="checkbox"] {
   appearance: none;
   margin: 0; // not removed via appearance
   background-color: #fff;
@@ -153,27 +153,26 @@ input[type="radio"] {
   border: 1px solid rgb(209, 209, 209);
   cursor: pointer;
   transform: translateY(-0.075em);
+  
 }
 
-input[type="radio"]::before {
-  content: "";
-  color: #fff;
-  width: 1.5em;
-  height: 1.5em;
-  border-radius: 50%;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
+
+input[type="checkbox"]:checked::before {
   position: absolute;
-  left: 4px;
-  top: 4px;
-}
-
-input[type="radio"]:checked::before {
   transform: scale(1);
   content: "✔";
+  color: #FFF;
   top: 4px;
   left: 5px;
+  
 }
+
+input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: rgba(207, 206, 206, 0.795);
+}
+
+
 
 //PUT THIS IN VENDOR
 .truncate {
@@ -184,4 +183,8 @@ input[type="radio"]:checked::before {
   line-clamp: 4;
   -webkit-box-orient: vertical;
   max-width: 27ch;
+}
+
+#add-task {
+  width: 100%;
 }
