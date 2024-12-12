@@ -7,7 +7,7 @@ body {
   color: $color-grey;
   line-height: 1.5;
   background: rgb(255,255,255);
-background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(231,230,230,1) 50%, rgba(255,255,255,1) 100%);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(231,230,230,1) 50%, rgba(255,255,255,1) 100%);
 }
 
 h1 {
@@ -89,10 +89,30 @@ input {
   color: $color-grey-dark;
 }
 
-input[type="checkbox"]:checked {
-  background: linear-gradient(to bottom right, #63b4ff, #a057ff);
-  border: 0;
+input[type="checkbox"] {
+  appearance: none;
+  margin: 0; // not removed via appearance
+  // background-color: #fff;
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 50%;
+  border: 1px solid rgba(209, 209, 209, 0.67);
+  cursor: pointer;
+  transform: translateY(-0.075em);
+  
 }
+
+
+
+// input[type="checkbox"]:checked {
+//   background: 
+//     linear-gradient(to bottom right, #63b4ff, #a057ff), 
+//     url('/assets/icon-check.svg') no-repeat center;
+//   background-size: cover, 50%;
+//   background-position: center;
+//   border: none;
+  
+// }
 
 .tasks {
   // padding: 1.5rem;
@@ -130,6 +150,9 @@ input[type="checkbox"]:checked {
     align-items: center;
   }
 
+  
+
+ 
   &__text {
     // margin-left: 1rem;
     cursor: pointer;
@@ -149,33 +172,21 @@ input[type="checkbox"]:checked {
   }
 }
 
-input[type="checkbox"] {
-  appearance: none;
-  margin: 0; // not removed via appearance
-  background-color: #fff;
-  width: 1.5em;
-  height: 1.5em;
-  border-radius: 50%;
-  border: 1px solid rgba(209, 209, 209, 0.67);
-  cursor: pointer;
-  transform: translateY(-0.075em);
-  
-}
-
-
-input[type="checkbox"]:checked::before {
-  position: absolute;
-  transform: scale(1);
-  content: "✔";
-  color: #FFF;
-  top: 4px;
-  left: 5px;
-  
-}
-
 input[type="checkbox"]:checked + label {
   text-decoration: line-through;
   color: rgba(207, 206, 206, 0.795);
+  
+}
+
+input[type="checkbox"]:checked {
+  background: 
+    url('/assets/icon-check.svg') no-repeat center, 
+    linear-gradient(to bottom right, #63b4ff, #a057ff);
+  background-size: 50%, cover; 
+  background-position: center;
+  border: none;
+  
+    
 }
 
 #add-task {
@@ -195,9 +206,7 @@ input[type="checkbox"]:checked + label {
   background-color: #FFF;
   border-radius: 10px;
   
- 
-
- 
+  
 }
 
 .sorting-bar-mobile {
@@ -215,6 +224,7 @@ input[type="checkbox"]:checked + label {
     gap: 1rem;
   }
 }
+
 
 
 // UTILITY
