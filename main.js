@@ -34,8 +34,8 @@ class UI {
       <div class="tasks__item-block">
                   <div class="tasks__inner-item-block">
                     <div class="tasks__left-block-content">
-                      <input type="checkbox" id="list-item1" class="tasks__checkbox">
-                      <label class="tasks__text truncate" for="list-item1">
+                      <input type="checkbox" id="${task.id}" class="tasks__checkbox">
+                      <label class="tasks__text truncate" for="${task.id}">
                         ${task.description}
                       </label>
                     </div>
@@ -57,9 +57,8 @@ class UI {
 
 
 
-
-
-
+//Bugs
+// each input item must be give a unique id in order to work
 
 
 
