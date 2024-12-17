@@ -1,5 +1,6 @@
 "use strict";
-const taskField = document.getElementById("task-field"); // input field
+const taskField = document.getElementById("task-field"); 
+const list = document.querySelector('.tasks__list');
 
 let listArr = [];
 
@@ -11,22 +12,50 @@ taskField.addEventListener("keydown", (e) => {
     const newTask = new Task(id, taskField.value.trim())
     listArr = [...listArr, newTask] // expand array and add newTask
     taskField.value = "";
-    console.log(listArr);
+    UI.addTasks();
   }
 });
 
 
 // make object instance
 class Task {
-  constructor(id, task){
+  constructor(id, description){
     this.id = id;
-    this.task = task;
+    this.description = description;
   }
 }
 
+// for each array items
 class UI {
+  static addTasks() {
+    list.innerHTML = '';
+    let allTasks = listArr.map(task =>{
+      return `
+      <div class="tasks__item-block">
+                  <div class="tasks__inner-item-block">
+                    <div class="tasks__left-block-content">
+                      <input type="checkbox" id="list-item1" class="tasks__checkbox">
+                      <label class="tasks__text truncate" for="list-item1">
+                        ${task.description}
+                      </label>
+                    </div>
+                    <button class="tasks__btn-delete"></button>
+                  </div>
+                </div>
+      `
+    }).join('')
 
+    list.innerHTML += allTasks;
+    console.log(listArr);
+    
+  }
+
+  static checkArr(){
+
+  }
 }
+
+
 
 
 
