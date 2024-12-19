@@ -10,7 +10,8 @@ taskField.addEventListener("keydown", (e) => {
     e.preventDefault(); // without this, attempt made to submit form
     let id = Date.now() + Math.floor(Math.random());
     const newTask = new Task(id, taskField.value.trim())
-    listArr = [...listArr, newTask] // expand array and add newTask
+    // listArr = [...listArr, newTask] // expand array and add newTask
+    listArr.push(newTask)
     taskField.value = "";
     UI.addTasks();
   }
@@ -23,12 +24,14 @@ class Task {
     this.id = id;
     this.description = description;
   }
+
+  
 }
 
 // for each array items
 class UI {
   static addTasks() {
-    list.innerHTML = '';
+    list.innerHTML = ''; // creates issue when refresh, lose checkbox
     let allTasks = listArr.map(task =>{
       return `
       <div class="tasks__item-block">
