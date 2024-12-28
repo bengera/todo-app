@@ -12,13 +12,13 @@ taskField.addEventListener("keydown", (e) => {
   }
 });
 
-
 // make object instance
 class Task {
   
-  constructor(id, description) {
+  constructor(id, description, status = false) {
     this.id = id;
     this.description = description;
+    this.status = status;
           
     // taskField.addEventListener("keydown", this._handleTask.bind(this))
   }
@@ -40,7 +40,7 @@ class Task {
       <div class="tasks__item-block">
                   <div class="tasks__inner-item-block">
                     <div class="tasks__left-block-content">
-                      <input type="checkbox" id="${task.id}" class="tasks__checkbox">
+                      <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
                       <label class="tasks__text truncate" for="${task.id}">
                         ${task.description}
                       </label>
@@ -52,7 +52,7 @@ class Task {
       })
       .join("");
 
-      Task.setLocalStorage()
+    Task.setLocalStorage()
     list.innerHTML += allTasks;
     console.log(listArr);
     
