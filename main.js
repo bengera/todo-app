@@ -20,11 +20,10 @@ class Task {
     this.description = description;
     this.status = status;
           
-    // taskField.addEventListener("keydown", this._handleTask.bind(this))
   }
 
   static handleTask() {
-    console.log("handling new task");
+    
     let id = Date.now() + Math.floor(Math.random());
     const newTask = new Task(id, taskField.value.trim());
     listArr.push(newTask);
@@ -58,13 +57,11 @@ class Task {
 
      // event listener to see if inputs are checked
      const checkboxes = document.querySelectorAll('.tasks__checkbox');
-     console.log(checkboxes);
      checkboxes.forEach((checkbox) => {
          checkbox.addEventListener('change', (e) => {
-         const targetId = e.target.id;
-        console.log(targetId);
+        const targetId = e.target.id;
         const found = listArr.find((el) => el.id.toString() === targetId)
-        found.status = true;
+        found.status ? found.status = false : found.status = true;
         console.log(found);
         Task.setLocalStorage()
        })
