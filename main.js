@@ -52,8 +52,24 @@ class Task {
       })
       .join("");
 
+   
     Task.setLocalStorage()
     list.innerHTML += allTasks;
+
+     // event listener to see if inputs are checked
+     const checkboxes = document.querySelectorAll('.tasks__checkbox');
+     console.log(checkboxes);
+     checkboxes.forEach((checkbox) => {
+         checkbox.addEventListener('change', (e) => {
+         const targetId = e.target.id;
+        console.log(targetId);
+        const found = listArr.find((el) => el.id.toString() === targetId)
+        found.status = true;
+        console.log(found);
+        Task.setLocalStorage()
+       })
+     })
+
     console.log(listArr);
     
   }
