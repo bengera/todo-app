@@ -56,6 +56,7 @@ class Task {
 
    
     Task.setLocalStorage()
+    Task.updateCounter()
     list.innerHTML += allTasks;
 
      // event listener to see if inputs are checked
@@ -92,8 +93,14 @@ class Task {
   }
 
 static updateCounter(){
-  console.log(`${listArr.length}🌟`);
-  remaining.innerText = `${counter} items left`
+  //before updating update remaining text to include only items with status of false
+
+  
+  const listItemsTotal = listArr.length
+  console.log(`${listItemsTotal}`);
+
+  
+  remaining.innerText = `${listItemsTotal} items left`
   
 }
 
