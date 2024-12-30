@@ -1,8 +1,10 @@
 "use strict";
 const taskField = document.getElementById("task-field");
 const list = document.querySelector(".tasks__list");
+const remaining = document.getElementById('remaining-items');
 
 let listArr = [];
+let counter = 0;
 
 // By using static classes we can call them methods without having an instance of class
 taskField.addEventListener("keydown", (e) => {
@@ -29,6 +31,7 @@ class Task {
     listArr.push(newTask);
     taskField.value = "";
     Task.addTasks();
+    // Task.updateCounter();
   }
 
   static addTasks() {
@@ -64,9 +67,11 @@ class Task {
         found.status ? found.status = false : found.status = true;
         console.log(found);
         Task.setLocalStorage()
+        
        })
      })
 
+    
     console.log(listArr);
     
   }
@@ -85,11 +90,40 @@ class Task {
     
     
   }
+
+static updateCounter(){
+  console.log(`${listArr.length}🌟`);
+  remaining.innerText = `${counter} items left`
+  
+}
+
+// old counter
+  // static updateCounter(){
+  //      if(listArr.length <= 0){
+  //       remaining.innerText = `0 items left`
+  //      } else {
+  //         listArr.forEach((task)=> {
+  //         task.status ? Task.countUp() : Task.countDown();
+  //         remaining.innerText = `${counter} items left`
+  //       })
+  //      }
+   
+   
+  // }
+
+  static countUp() {
+    counter++;
+  }
+
+  static countDown() {
+    counter--;
+  }
 }
 
 
 document.addEventListener('DOMContentLoaded',()=> {
   Task.getLocalStorage();
   Task.addTasks();
+  Task.updateCounter();
 })
 
