@@ -68,6 +68,7 @@ class Task {
         found.status ? found.status = false : found.status = true;
         console.log(found);
         Task.setLocalStorage()
+        Task.updateCounter()
         
        })
      })
@@ -93,38 +94,11 @@ class Task {
   }
 
 static updateCounter(){
-  //before updating update remaining text to include only items with status of false
-
-  
-  const listItemsTotal = listArr.length
-  console.log(`${listItemsTotal}`);
-
-  
-  remaining.innerText = `${listItemsTotal} items left`
+  const listItemsUnchecked = listArr.filter(item => item.status === false)
+  remaining.innerText = `${listItemsUnchecked.length} items left`
   
 }
 
-// old counter
-  // static updateCounter(){
-  //      if(listArr.length <= 0){
-  //       remaining.innerText = `0 items left`
-  //      } else {
-  //         listArr.forEach((task)=> {
-  //         task.status ? Task.countUp() : Task.countDown();
-  //         remaining.innerText = `${counter} items left`
-  //       })
-  //      }
-   
-   
-  // }
-
-  static countUp() {
-    counter++;
-  }
-
-  static countDown() {
-    counter--;
-  }
 }
 
 
