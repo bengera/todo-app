@@ -66,7 +66,6 @@ class Task {
         const targetId = e.target.id;
         const found = listArr.find((el) => el.id.toString() === targetId)
         found.status ? found.status = false : found.status = true;
-        console.log(found);
         Task.setLocalStorage()
         Task.updateCounter()
         
