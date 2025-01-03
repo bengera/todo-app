@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import purgecss from 'vite-plugin-purgecss';
+import purgecss from 'vite-plugin-purgecss-updated-v5';
 import { resolve } from 'path';
 
 export default defineConfig({
