@@ -31,17 +31,17 @@ class Task {
     listArr.push(newTask);
     taskField.value = "";
     Task.addTasks();
-    // Task.updateCounter();
+    
   }
 
   static addTasks() {
-    list.innerHTML = ""; // creates issue when refresh, lose checkbox
+    list.innerHTML = ""; 
     let allTasks = listArr
       .map((task) => {
         return `
       <div class="tasks__item-block">
                   <div class="tasks__inner-item-block">
-                    <div class="tasks__left-block-content">
+                    <div class="tasks__left-block-content" data-id="${task.id}">
                       <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
                       <label class="tasks__text truncate" for="${task.id}">
                         ${task.description}
@@ -58,22 +58,10 @@ class Task {
     Task.setLocalStorage()
     Task.updateCounter()
     list.innerHTML += allTasks;
-
-     // event listener to see if inputs are checked
-     const checkboxes = document.querySelectorAll('.tasks__checkbox');
-     checkboxes.forEach((checkbox) => {
-         checkbox.addEventListener('change', (e) => {
-        const targetId = e.target.id;
-        const found = listArr.find((el) => el.id.toString() === targetId)
-        found.status ? found.status = false : found.status = true;
-        Task.setLocalStorage()
-        Task.updateCounter()
-        
-       })
-     })
+ 
+    console.log(listArr);
 
     
-    console.log(listArr);
     
   }
 
@@ -105,5 +93,22 @@ document.addEventListener('DOMContentLoaded',()=> {
   Task.getLocalStorage();
   Task.addTasks();
   Task.updateCounter();
+
+  // Add event listener ONCE for the entire list (event delegation)
+  list.addEventListener('click', (e) => { 
+    if (e.target.closest('.tasks__left-block-content')){ // check if block exists
+        const targetBlock = e.target.closest('.tasks__left-block-content'); // find the closest block
+        const taskId = targetBlock.getAttribute('data-id'); // find the id of that block
+        const task = listArr.find((el) => el.id.toString() === taskId); // find the element in the listArray that has the same id
+
+        if (task) {
+          task.status = !task.status; // swap the boolean value
+          Task.setLocalStorage();
+          Task.updateCounter();
+          Task.addTasks(); // Re-render tasks
+        }
+    }
+  })
+
 })
 
