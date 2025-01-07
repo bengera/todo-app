@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded',()=> {
   Task.updateCounter();
 
   // Add event listener ONCE for the entire list (event delegation)
-  list.addEventListener('click', (e) => { 
+  list.addEventListener('click', (e) => { // represents the element clicked
     if (e.target.closest('.tasks__left-block-content')){ // check if block exists
         const targetBlock = e.target.closest('.tasks__left-block-content'); // find the closest block
         const taskId = targetBlock.getAttribute('data-id'); // find the id of that block
@@ -108,7 +108,16 @@ document.addEventListener('DOMContentLoaded',()=> {
           Task.addTasks(); // Re-render tasks
         }
     }
-  })
 
-})
+    if(e.target.classList.contains('tasks__btn-delete')){ // checks if clicked item is a delete button
+      console.log('You clicked a delete button ❌')
+     const taskId = e.target.closest('.tasks__inner-item-block').querySelector('.tasks__left-block-content').getAttribute('data-id'); // Get ID of task to be deleted
+      listArr = listArr.filter((el) => el.id.toString() !== taskId);
+      Task.setLocalStorage();
+      Task.updateCounter();
+      Task.addTasks(); 
+    }
+
+  });
+ });
 
