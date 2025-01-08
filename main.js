@@ -3,6 +3,10 @@ const taskField = document.getElementById("task-field");
 const list = document.querySelector(".tasks__list");
 const remaining = document.getElementById('remaining-items');
 
+// Bottom bar buttons
+const allItemsButton = document.getElementById('all');
+const completedButton = document.getElementById('completed');
+
 let listArr = [];
 let counter = 0;
 
@@ -59,9 +63,7 @@ class Task {
     Task.updateCounter()
     list.innerHTML += allTasks;
  
-    console.log(listArr);
-
-    
+       
     
   }
 
@@ -86,6 +88,28 @@ static updateCounter(){
   
 }
 
+static showCompleted(completedTasks){
+  list.innerHTML = ""; 
+  const allTasks = completedTasks
+    .map((task) => {
+      return `
+    <div class="tasks__item-block">
+                <div class="tasks__inner-item-block">
+                  <div class="tasks__left-block-content" data-id="${task.id}">
+                    <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
+                    <label class="tasks__text truncate" for="${task.id}">
+                      ${task.description}
+                    </label>
+                  </div>
+                  <button class="tasks__btn-delete"></button>
+                </div>
+              </div>
+    `;
+    })
+    .join("");
+    list.innerHTML += allTasks;
+}
+
 }
 
 
@@ -102,7 +126,7 @@ document.addEventListener('DOMContentLoaded',()=> {
         const task = listArr.find((el) => el.id.toString() === taskId); // find the element in the listArray that has the same id
 
         if (task) {
-          task.status = !task.status; // swap the boolean value
+          task.status = !task.status; // swap the boolean value of found task
           Task.setLocalStorage();
           Task.updateCounter();
           Task.addTasks(); // Re-render tasks
@@ -110,14 +134,29 @@ document.addEventListener('DOMContentLoaded',()=> {
     }
 
     if(e.target.classList.contains('tasks__btn-delete')){ // checks if clicked item is a delete button
-      console.log('You clicked a delete button ❌')
-     const taskId = e.target.closest('.tasks__inner-item-block').querySelector('.tasks__left-block-content').getAttribute('data-id'); // Get ID of task to be deleted
+      const taskId = e.target.closest('.tasks__inner-item-block').querySelector('.tasks__left-block-content').getAttribute('data-id'); // Get ID of task to be deleted
       listArr = listArr.filter((el) => el.id.toString() !== taskId);
       Task.setLocalStorage();
       Task.updateCounter();
       Task.addTasks(); 
     }
+    
 
   });
+
+
+  // add event listener to 'all' button
+completedButton.addEventListener('click', () => {
+     const completedTasks = listArr.filter((task) => task.status === true)
+    Task.showCompleted(completedTasks);
+    console.log('show completed tasks ✅')
+  })
+
+  allItemsButton.addEventListener('click', () => {
+    Task.addTasks();
+    console.log('show all tasks')
+  })
+
+
  });
 
