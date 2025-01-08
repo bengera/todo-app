@@ -3,10 +3,12 @@ const taskField = document.getElementById("task-field");
 const list = document.querySelector(".tasks__list");
 const remaining = document.getElementById('remaining-items');
 
-// Filter buttons
+
+// Buttons
 const allItemsButton = document.getElementById('all');
 const completedButton = document.getElementById('completed');
 const activeButton = document.getElementById('active');
+const clearButton = document.getElementById('clear');
 
 let listArr = [];
 let counter = 0;
@@ -102,51 +104,6 @@ static updateCounter(){
   
 }
 
-// static showCompleted(completedTasks){
-//   list.innerHTML = ""; 
-//   const allTasks = completedTasks
-//     .map((task) => {
-//       return `
-//     <div class="tasks__item-block">
-//                 <div class="tasks__inner-item-block">
-//                   <div class="tasks__left-block-content" data-id="${task.id}">
-//                     <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
-//                     <label class="tasks__text truncate" for="${task.id}">
-//                       ${task.description}
-//                     </label>
-//                   </div>
-//                   <button class="tasks__btn-delete"></button>
-//                 </div>
-//               </div>
-//     `;
-//     })
-//     .join("");
-//     list.innerHTML += allTasks;
-// }
-
-// static showActive(activeTasks){
-//   list.innerHTML = ""; 
-//   const allTasks = activeTasks
-//     .map((task) => {
-//       return `
-//     <div class="tasks__item-block">
-//                 <div class="tasks__inner-item-block">
-//                   <div class="tasks__left-block-content" data-id="${task.id}">
-//                     <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
-//                     <label class="tasks__text truncate" for="${task.id}">
-//                       ${task.description}
-//                     </label>
-//                   </div>
-//                   <button class="tasks__btn-delete"></button>
-//                 </div>
-//               </div>
-//     `;
-//     })
-//     .join("");
-//     list.innerHTML += allTasks;
-// }
-
-
 }
 
 
@@ -184,21 +141,28 @@ document.addEventListener('DOMContentLoaded',()=> {
 
   // add event listener to 'all' button
 completedButton.addEventListener('click', () => {
-     const completedTasks = listArr.filter((task) => task.status === true)
+    const completedTasks = listArr.filter((task) => task.status === true);
     Task.showCompleted(completedTasks);
-    console.log('show completed tasks ✅')
-  })
+    console.log('show completed tasks ✅');
+});
 
-  allItemsButton.addEventListener('click', () => {
+allItemsButton.addEventListener('click', () => {
     Task.addTasks();
-    console.log('show all tasks')
-  })
+    console.log('show all tasks');
+});
 
-  activeButton.addEventListener('click', () => {
-    const activeTasks = listArr.filter((task) => task.status === false)
+activeButton.addEventListener('click', () => {
+    const activeTasks = listArr.filter((task) => task.status === false);
     Task.showActive(activeTasks);
-    console.log('Show active tasks ▶')
-  })
+    console.log('Show active tasks ▶');
+});
+
+clearButton.addEventListener('click', () => {
+    listArr = listArr.filter(task => !task.status); 
+    Task.setLocalStorage();
+    Task.updateCounter();
+    Task.addTasks(); 
+    console.log('Clear completed tasks');
+});
 
  });
-
