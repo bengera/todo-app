@@ -39,9 +39,9 @@ class Task {
     
   }
 
-  static addTasks() {
+  static renderTasks(tasks) {
     list.innerHTML = ""; 
-    let allTasks = listArr
+    const allTasks = tasks
       .map((task) => {
         return `
       <div class="tasks__item-block">
@@ -60,12 +60,25 @@ class Task {
       .join("");
 
    
-    Task.setLocalStorage()
-    Task.updateCounter()
+   
     list.innerHTML += allTasks;
  
        
     
+  }
+
+  static addTasks() {
+    Task.renderTasks(listArr)
+    Task.setLocalStorage()
+    Task.updateCounter()
+  }
+
+  static showCompleted(completedTasks){
+    Task.renderTasks(completedTasks)
+  }
+
+  static showActive(activeTasks){
+    Task.renderTasks(activeTasks)
   }
 
   static setLocalStorage(){
@@ -89,49 +102,49 @@ static updateCounter(){
   
 }
 
-static showCompleted(completedTasks){
-  list.innerHTML = ""; 
-  const allTasks = completedTasks
-    .map((task) => {
-      return `
-    <div class="tasks__item-block">
-                <div class="tasks__inner-item-block">
-                  <div class="tasks__left-block-content" data-id="${task.id}">
-                    <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
-                    <label class="tasks__text truncate" for="${task.id}">
-                      ${task.description}
-                    </label>
-                  </div>
-                  <button class="tasks__btn-delete"></button>
-                </div>
-              </div>
-    `;
-    })
-    .join("");
-    list.innerHTML += allTasks;
-}
+// static showCompleted(completedTasks){
+//   list.innerHTML = ""; 
+//   const allTasks = completedTasks
+//     .map((task) => {
+//       return `
+//     <div class="tasks__item-block">
+//                 <div class="tasks__inner-item-block">
+//                   <div class="tasks__left-block-content" data-id="${task.id}">
+//                     <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
+//                     <label class="tasks__text truncate" for="${task.id}">
+//                       ${task.description}
+//                     </label>
+//                   </div>
+//                   <button class="tasks__btn-delete"></button>
+//                 </div>
+//               </div>
+//     `;
+//     })
+//     .join("");
+//     list.innerHTML += allTasks;
+// }
 
-static showActive(activeTasks){
-  list.innerHTML = ""; 
-  const allTasks = activeTasks
-    .map((task) => {
-      return `
-    <div class="tasks__item-block">
-                <div class="tasks__inner-item-block">
-                  <div class="tasks__left-block-content" data-id="${task.id}">
-                    <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
-                    <label class="tasks__text truncate" for="${task.id}">
-                      ${task.description}
-                    </label>
-                  </div>
-                  <button class="tasks__btn-delete"></button>
-                </div>
-              </div>
-    `;
-    })
-    .join("");
-    list.innerHTML += allTasks;
-}
+// static showActive(activeTasks){
+//   list.innerHTML = ""; 
+//   const allTasks = activeTasks
+//     .map((task) => {
+//       return `
+//     <div class="tasks__item-block">
+//                 <div class="tasks__inner-item-block">
+//                   <div class="tasks__left-block-content" data-id="${task.id}">
+//                     <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
+//                     <label class="tasks__text truncate" for="${task.id}">
+//                       ${task.description}
+//                     </label>
+//                   </div>
+//                   <button class="tasks__btn-delete"></button>
+//                 </div>
+//               </div>
+//     `;
+//     })
+//     .join("");
+//     list.innerHTML += allTasks;
+// }
 
 
 }

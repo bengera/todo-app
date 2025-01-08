@@ -92,6 +92,51 @@ To see how you can add code snippets, see below:
         
        })
      })
+
+
+     static showCompleted(completedTasks){
+  list.innerHTML = ""; 
+  const allTasks = completedTasks
+    .map((task) => {
+      return `
+    <div class="tasks__item-block">
+                <div class="tasks__inner-item-block">
+                  <div class="tasks__left-block-content" data-id="${task.id}">
+                    <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
+                    <label class="tasks__text truncate" for="${task.id}">
+                      ${task.description}
+                    </label>
+                  </div>
+                  <button class="tasks__btn-delete"></button>
+                </div>
+              </div>
+    `;
+    })
+    .join("");
+    list.innerHTML += allTasks;
+}
+
+static showActive(activeTasks){
+  list.innerHTML = ""; 
+  const allTasks = activeTasks
+    .map((task) => {
+      return `
+    <div class="tasks__item-block">
+                <div class="tasks__inner-item-block">
+                  <div class="tasks__left-block-content" data-id="${task.id}">
+                    <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
+                    <label class="tasks__text truncate" for="${task.id}">
+                      ${task.description}
+                    </label>
+                  </div>
+                  <button class="tasks__btn-delete"></button>
+                </div>
+              </div>
+    `;
+    })
+    .join("");
+    list.innerHTML += allTasks;
+}
 ```
 
 If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
