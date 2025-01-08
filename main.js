@@ -3,9 +3,10 @@ const taskField = document.getElementById("task-field");
 const list = document.querySelector(".tasks__list");
 const remaining = document.getElementById('remaining-items');
 
-// Bottom bar buttons
+// Filter buttons
 const allItemsButton = document.getElementById('all');
 const completedButton = document.getElementById('completed');
+const activeButton = document.getElementById('active');
 
 let listArr = [];
 let counter = 0;
@@ -110,6 +111,29 @@ static showCompleted(completedTasks){
     list.innerHTML += allTasks;
 }
 
+static showActive(activeTasks){
+  list.innerHTML = ""; 
+  const allTasks = activeTasks
+    .map((task) => {
+      return `
+    <div class="tasks__item-block">
+                <div class="tasks__inner-item-block">
+                  <div class="tasks__left-block-content" data-id="${task.id}">
+                    <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
+                    <label class="tasks__text truncate" for="${task.id}">
+                      ${task.description}
+                    </label>
+                  </div>
+                  <button class="tasks__btn-delete"></button>
+                </div>
+              </div>
+    `;
+    })
+    .join("");
+    list.innerHTML += allTasks;
+}
+
+
 }
 
 
@@ -157,6 +181,11 @@ completedButton.addEventListener('click', () => {
     console.log('show all tasks')
   })
 
+  activeButton.addEventListener('click', () => {
+    const activeTasks = listArr.filter((task) => task.status === false)
+    Task.showActive(activeTasks);
+    console.log('Show active tasks ▶')
+  })
 
  });
 
