@@ -3,8 +3,9 @@ const taskField = document.getElementById("task-field");
 const list = document.querySelector(".tasks__list");
 const remaining = document.getElementById('remaining-items');
 
-
 // Buttons
+const themeSwitcherButton = document.querySelector('.btn-theme-switcher');
+
 const allItemsButton = document.getElementById('all');
 const completedButton = document.getElementById('completed');
 const activeButton = document.getElementById('active');
@@ -138,6 +139,17 @@ document.addEventListener('DOMContentLoaded',()=> {
 
   });
 
+// EVENT LISTENERS
+themeSwitcherButton.addEventListener('click', () => {
+  console.log('button clicked theme')
+  if (themeSwitcherButton.classList.contains('light')) {
+    themeSwitcherButton.classList.remove('light')
+    themeSwitcherButton.classList.add('dark')
+  } else {
+    themeSwitcherButton.classList.remove('dark')
+    themeSwitcherButton.classList.add('light')
+  }
+})
 
   // add event listener to 'all' button
 completedButton.addEventListener('click', () => {
