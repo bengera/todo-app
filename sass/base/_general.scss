@@ -17,12 +17,19 @@ h1 {
 
 .header {
   position: relative;
-  background-image: url(/assets/bg-desktop-light.jpg);
   background-position: top;
   background-repeat: no-repeat;
   height: 250px;
   // background-size: 100vw; // desktop
   // border: 2px solid red;
+}
+
+.header.light {
+  background-image: url(/assets/bg-desktop-light.jpg);
+}
+
+.header.dark {
+  background-image: url(/assets/bg-desktop-dark.jpg);
 }
 
 ::placeholder {
@@ -184,11 +191,19 @@ input[type="checkbox"]:checked {
     
 }
 
-#task-field {
+.task-field {
   width: 100%;
   font-size: 16px;
   color: rgb(22, 22, 22);
   caret-color: $color-blue-cursor;
+}
+
+.task-field.light {
+background-color: #FFF;
+}
+
+.task-field.dark {
+  background-color: $dark-color-dark-blue;
 }
 
 // BOTTOM BAR MOBILE

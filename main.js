@@ -143,6 +143,18 @@ document.addEventListener('DOMContentLoaded',()=> {
 // THEME SWITCHER
 function switchTheme() {
   console.log('button clicked theme')
+
+  const elements = document.querySelectorAll('*');
+  elements.forEach(element => {
+    if (element.classList.length > 0){
+      element.classList.forEach(className => {
+        if (className === 'light'){
+          
+        }
+      })
+    }
+  })
+  /*
   if (themeSwitcherButton.classList.contains('light')) {
     themeSwitcherButton.classList.remove('light')
     themeSwitcherButton.classList.add('dark')
@@ -150,6 +162,7 @@ function switchTheme() {
     themeSwitcherButton.classList.remove('dark')
     themeSwitcherButton.classList.add('light')
   }
+    */
 }
 
 // EVENT LISTENERS
