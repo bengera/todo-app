@@ -52,7 +52,7 @@ class Task {
                   <div class="tasks__inner-item-block">
                     <div class="tasks__left-block-content light" data-id="${task.id}">
                       <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
-                      <label class="tasks__text truncate" for="${task.id}">
+                      <label class="tasks__text truncate light" for="${task.id}">
                         ${task.description}
                       </label>
                     </div>

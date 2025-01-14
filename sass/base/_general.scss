@@ -6,8 +6,18 @@ body {
   font-size: fs(400);
   color: $color-grey;
   line-height: 1.5;
+ 
+}
+
+body.light {
   background: rgb(255,255,255);
   background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(231,230,230,1) 50%, rgba(255,255,255,1) 100%);
+}
+
+body.dark {
+  background: #25273D;
+  background: radial-gradient(circle, #25273D 0%, #1e1f2e 50%, #25273D 100%);
+
 }
 
 h1 {
@@ -115,15 +125,19 @@ input[type="checkbox"] {
   
 }
 
+.tasks.dark {
+  background-color: $dark-color-dark-blue;
+}
+
+.tasks.light {
+  background-color: #FFF;
+}
+
 .tasks {
-  // padding: 1.5rem;
-  background-color: #fff;
+    
   margin-top: 16px;
-  color: $color-blue;
   border-radius: 10px;
-
-  // border: 1px solid rgb(32, 32, 32);
-
+  
   &__list {
     list-style: none;
     display: flex;
@@ -142,6 +156,7 @@ input[type="checkbox"] {
     border-bottom: 1px solid rgb(209, 209, 209);
   }
 
+  
   &__left-block-content {
     display: flex;
     flex-direction: row;
@@ -154,10 +169,12 @@ input[type="checkbox"] {
 
   &__left-block-content.light{
     background-color: #FFF;
+    color: $color-blue;
   }
 
   &__left-block-content.dark{
     background-color: $dark-color-dark-blue;
+    color: $dark-color-dark-text;
   }
 
   
@@ -184,7 +201,18 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked + label {
   text-decoration: line-through;
+   
+}
+
+input[type="checkbox"]:checked + label.light {
+  text-decoration: line-through;
   color: rgba(207, 206, 206, 0.795);
+  
+}
+
+input[type="checkbox"]:checked + label.dark {
+  text-decoration: line-through;
+  color: $dark-color-grey-line;
   
 }
 
@@ -219,20 +247,18 @@ color: rgb(22, 22, 22);
 .bottom-bar-mobile {
   display: flex;
   justify-content: space-between;
-  color: #afafaf;
   font-size: 12px;
   padding: 1.5rem 1.2rem;
-  background-color: #FFF;
-  border-radius: 10px;
-  
-  
+   border-radius: 10px;
+   color: $color-grey-dark;
+    
 }
+
+
 
 .sorting-bar-mobile {
   margin-top: 1rem;
-  background-color: #FFF;
   font-size: 14px;
-  color: #9495A5;
   font-weight: $fw-700;
   padding: 1rem;
   border-radius: 10px;
@@ -242,6 +268,18 @@ color: rgb(22, 22, 22);
     justify-content: center;
     gap: 1rem;
   }
+}
+
+.sorting-bar-mobile.light{
+  background-color: #FFF;
+  color: $color-grey-dark;
+
+}
+
+.sorting-bar-mobile.dark{
+  color:$dark-color-dark-text;
+  background-color: $dark-color-dark-blue;
+  
 }
 
 
