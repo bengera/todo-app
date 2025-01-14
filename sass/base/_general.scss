@@ -152,6 +152,14 @@ input[type="checkbox"] {
     cursor: pointer;
   }
 
+  &__left-block-content.light{
+    background-color: #FFF;
+  }
+
+  &__left-block-content.dark{
+    background-color: $dark-color-dark-blue;
+  }
+
   
 
  
@@ -194,16 +202,17 @@ input[type="checkbox"]:checked {
 .task-field {
   width: 100%;
   font-size: 16px;
-  color: rgb(22, 22, 22);
   caret-color: $color-blue-cursor;
 }
 
 .task-field.light {
 background-color: #FFF;
+color: rgb(22, 22, 22);
 }
 
 .task-field.dark {
   background-color: $dark-color-dark-blue;
+  color: $dark-color-dark-text;
 }
 
 // BOTTOM BAR MOBILE

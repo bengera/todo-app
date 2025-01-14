@@ -50,7 +50,7 @@ class Task {
         return `
       <div class="tasks__item-block">
                   <div class="tasks__inner-item-block">
-                    <div class="tasks__left-block-content" data-id="${task.id}">
+                    <div class="tasks__left-block-content light" data-id="${task.id}">
                       <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
                       <label class="tasks__text truncate" for="${task.id}">
                         ${task.description}
@@ -102,7 +102,7 @@ class Task {
 
 static updateCounter(){
   const listItemsUnchecked = listArr.filter(item => item.status === false)
-  remaining.innerText = `${listItemsUnchecked.length} items left`
+  remaining.innerText = listItemsUnchecked.length > 1 || listItemsUnchecked.length === 0 ? `${listItemsUnchecked.length} items left` : `${listItemsUnchecked.length} item left`
   
 }
 
