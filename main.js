@@ -49,7 +49,7 @@ class Task {
       .map((task) => {
         return `
       <div class="tasks__item-block">
-                  <div class="tasks__inner-item-block">
+                  <div class="tasks__inner-item-block light">
                     <div class="tasks__left-block-content light" data-id="${task.id}">
                       <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
                       <label class="tasks__text truncate light" for="${task.id}">
@@ -149,7 +149,8 @@ function switchTheme() {
     if (element.classList.length > 0){
       element.classList.forEach(className => {
         if (className === 'light'){
-          
+          element.classList.remove('light');
+          element.classList.add('dark');
         }
       })
     }
