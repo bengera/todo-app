@@ -14,6 +14,7 @@ const clearButton = document.getElementById('clear');
 
 let listArr = [];
 let counter = 0;
+let currentTheme = 'light';
 
 // By using static classes we can call them methods without having an instance of class
 taskField.addEventListener("keydown", (e) => {
@@ -49,10 +50,10 @@ class Task {
       .map((task) => {
         return `
       <div class="tasks__item-block">
-                  <div class="tasks__inner-item-block light">
-                    <div class="tasks__left-block-content light" data-id="${task.id}">
+                  <div class="tasks__inner-item-block ${currentTheme}">
+                    <div class="tasks__left-block-content ${currentTheme}" data-id="${task.id}">
                       <input type="checkbox" id="${task.id}" class="tasks__checkbox" ${task.status ? "checked" : ""}>
-                      <label class="tasks__text truncate light" for="${task.id}">
+                      <label class="tasks__text truncate ${currentTheme}" for="${task.id}">
                         ${task.description}
                       </label>
                     </div>
@@ -108,7 +109,6 @@ static updateCounter(){
 
 }
 
-
 document.addEventListener('DOMContentLoaded',()=> {
   Task.getLocalStorage();
   Task.addTasks();
@@ -142,8 +142,8 @@ document.addEventListener('DOMContentLoaded',()=> {
 
 // THEME SWITCHER
 function switchTheme() {
-  console.log('button clicked theme')
-
+  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+  
   const elements = document.querySelectorAll('*');
   elements.forEach(element => {
     if (element.classList.length > 0){
@@ -191,6 +191,7 @@ clearButton.addEventListener('click', () => {
     Task.updateCounter();
     Task.addTasks(); 
     console.log('Clear completed tasks');
+    
 });
 
  });
