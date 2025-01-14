@@ -152,18 +152,14 @@ function switchTheme() {
           element.classList.remove('light');
           element.classList.add('dark');
         }
+        else if (className === 'dark'){
+          element.classList.remove('dark');
+          element.classList.add('light');
+        }
       })
-    }
+    } 
   })
-  /*
-  if (themeSwitcherButton.classList.contains('light')) {
-    themeSwitcherButton.classList.remove('light')
-    themeSwitcherButton.classList.add('dark')
-  } else {
-    themeSwitcherButton.classList.remove('dark')
-    themeSwitcherButton.classList.add('light')
-  }
-    */
+
 }
 
 // EVENT LISTENERS
