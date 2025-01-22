@@ -110,6 +110,19 @@ static updateCounter(){
 }
 
 document.addEventListener('DOMContentLoaded',()=> {
+
+    // Retrieve the theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'light'; // Default to light
+    currentTheme = savedTheme;
+  
+    // Apply the saved theme
+    const elements = document.querySelectorAll('*');
+    elements.forEach(element => {
+      if (element.classList.contains('light') || element.classList.contains('dark')) {
+        element.classList.remove('light', 'dark');
+        element.classList.add(currentTheme);
+      }
+    });
   Task.getLocalStorage();
   Task.addTasks();
   Task.updateCounter();
@@ -159,6 +172,7 @@ function switchTheme() {
       })
     } 
   })
+  localStorage.setItem('theme', currentTheme);
 
 }
 
