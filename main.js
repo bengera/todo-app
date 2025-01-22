@@ -107,15 +107,27 @@ static updateCounter(){
   
 }
 
+static addActiveColor(target){
+  console.log(target);
+  const sortingButtons = document.querySelectorAll('.sorting-bar-mobile__button');
+  sortingButtons.forEach(button => {
+      if(button.classList.contains('active')){
+        button.classList.remove('active');
+        
+      }
+      target.classList.add('active')
+  })
+}
+
 }
 
 document.addEventListener('DOMContentLoaded',()=> {
 
-    // Retrieve the theme from localStorage
+    // retrieve theme from localStorage
     const savedTheme = localStorage.getItem('theme') || 'light'; // Default to light
     currentTheme = savedTheme;
   
-    // Apply the saved theme
+    // apply saved theme
     const elements = document.querySelectorAll('*');
     elements.forEach(element => {
       if (element.classList.contains('light') || element.classList.contains('dark')) {
@@ -123,6 +135,7 @@ document.addEventListener('DOMContentLoaded',()=> {
         element.classList.add(currentTheme);
       }
     });
+
   Task.getLocalStorage();
   Task.addTasks();
   Task.updateCounter();
@@ -182,29 +195,35 @@ themeSwitcherButton.addEventListener('click', switchTheme);
 
 
   // add event listener to 'all' button
-completedButton.addEventListener('click', () => {
+completedButton.addEventListener('click', (e) => {
+    const targetEl = e.target;
     const completedTasks = listArr.filter((task) => task.status === true);
     Task.showCompleted(completedTasks);
-    console.log('show completed tasks ✅');
+    Task.addActiveColor(targetEl);
+    // console.log('show completed tasks ✅');
 });
 
-allItemsButton.addEventListener('click', () => {
+allItemsButton.addEventListener('click', (e) => {
+    const targetEl = e.target;
     Task.addTasks();
+    Task.addActiveColor(targetEl);
     console.log('show all tasks');
 });
 
-activeButton.addEventListener('click', () => {
+activeButton.addEventListener('click', (e) => {
+   const targetEl = e.target;
     const activeTasks = listArr.filter((task) => task.status === false);
     Task.showActive(activeTasks);
-    console.log('Show active tasks ▶');
+    Task.addActiveColor(targetEl);
+    // console.log('Show active tasks ▶');
 });
 
-clearButton.addEventListener('click', () => {
+clearButton.addEventListener('click', (e) => {
     listArr = listArr.filter(task => !task.status); 
     Task.setLocalStorage();
     Task.updateCounter();
     Task.addTasks(); 
-    console.log('Clear completed tasks');
+    // console.log('Clear completed tasks');
     
 });
 

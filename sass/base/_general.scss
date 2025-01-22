@@ -290,6 +290,9 @@ color: rgb(22, 22, 22);
   
 }
 
+.sorting-bar-mobile__button.active {
+  color: $color-blue-cursor;
+}
 
 
 // UTILITY
