@@ -276,6 +276,8 @@ color: rgb(22, 22, 22);
     justify-content: center;
     gap: 1rem;
   }
+
+  
 }
 
 .sorting-bar-mobile.light{
@@ -288,6 +290,15 @@ color: rgb(22, 22, 22);
   color:$dark-color-dark-text;
   background-color: $dark-color-dark-blue;
   
+}
+
+.sorting-bar-mobile__button {
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    color: $color-blue;
+    
+  }
 }
 
 .sorting-bar-mobile__button.active {
