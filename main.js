@@ -108,7 +108,6 @@ static updateCounter(){
 }
 
 static addActiveColor(target){
-  console.log(target);
   const sortingButtons = document.querySelectorAll('.sorting-bar-mobile__button');
   sortingButtons.forEach(button => {
       if(button.classList.contains('active')){
@@ -218,7 +217,7 @@ activeButton.addEventListener('click', (e) => {
     // console.log('Show active tasks ▶');
 });
 
-clearButton.addEventListener('click', (e) => {
+clearButton.addEventListener('click', () => {
     listArr = listArr.filter(task => !task.status); 
     Task.setLocalStorage();
     Task.updateCounter();
