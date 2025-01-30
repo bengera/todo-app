@@ -32,6 +32,11 @@ h1 {
   height: 250px;
   // background-size: 100vw; // desktop
   // border: 2px solid red;
+
+  @include mq(medium) {
+    background-position: center;
+  background-size: cover;
+  }
 }
 
 .header.light {
@@ -53,6 +58,8 @@ h1 {
   left: 0;
   right: 0;
   max-width: 450px;
+
+ 
 }
 
 .app-inner {
@@ -110,6 +117,8 @@ input {
   padding-left: 4rem;
   border: 0;
   color: $color-grey-dark;
+
+  
 }
 
 input[type="checkbox"] {
@@ -123,7 +132,24 @@ input[type="checkbox"] {
   cursor: pointer;
   transform: translateY(-0.075em);
   
+  
+
+    
 }
+// For gradient css border
+// input[type="checkbox"]:before{
+//   content: "";
+//   position: absolute;
+//   z-index: -1;
+//   inset: 0;
+//   background: var(--c,linear-gradient(to right, #63b4ff, #a057ff));
+//   padding: var(--b);
+//   border-radius: 50%;
+//   mask: 
+//    linear-gradient(#000 0 0) exclude, 
+//    linear-gradient(#000 0 0) content-box;
+  
+// }
 
 .tasks.dark {
   background-color: $dark-color-dark-blue;
@@ -259,9 +285,18 @@ color: rgb(22, 22, 22);
   padding: 1.5rem 1.2rem;
    border-radius: 10px;
    color: $color-grey-dark;
+
+   
     
 }
 
+#clear {
+  transition: 0.2s ease-in-out;
+  &:hover {
+    color: $color-blue;
+    
+  }
+}
 
 
 .sorting-bar-mobile {
