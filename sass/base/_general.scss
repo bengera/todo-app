@@ -330,7 +330,7 @@ color: rgb(22, 22, 22);
     gap: 1rem;
   }
 
-  @media only screen and (max-width: 720px) {
+  @media only screen and (min-width: 720px) {
     display: none;
   }
 
