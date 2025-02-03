@@ -10,36 +10,37 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
     rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-CjiquF6I.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/mainJS-B5IF5LAy.js">
-  <link rel="stylesheet" crossorigin href="/assets/index-BJoHrfb-.css">
+  <script type="module" crossorigin src="/assets/index-DkvJUBgc.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/mainJS-BEmdXpu5.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-jfeT6U-g.css">
 </head>
 
-<body>
+<body class="light">
 
   <div class="master-container">
     <main>
-      <header class="header"></header>
+      <header class="header light"></header>
       <div class="app mx-auto">
         <div class="app-inner">
           <div class="top-wrapper">
             <h1 class="uppercase">Todo</h1>
-            <button class="btn-theme-switcher"></button>
+            <button class="btn-theme-switcher light"></button>
           </div><!--top wrapper end-->
           <form class="form">
             <!-- <label for="task-input"></label> -->
             <div class="task-input-wrapper">
-              <input type="text" placeholder="Create a new todo..." id="task-field">
+              <input class="task-field light" type="text" placeholder="Create a new todo..." id="task-field">
             </div> <!--input task-wrapper-end-->
 
-            <div class="tasks">
+            <div class="tasks light">
               <div class="tasks__list">
               </div> <!--tasks__list end-->
 
               
               <div class="bottom-bar-mobile">
                 <p id="remaining-items" class="bottom-bar-mobile__items-left"></p>
-                <button class="bottom-bar-mobile__btn-clear btn-remove-style">Clear Completed</button>
+               
+                <button class="bottom-bar-mobile__btn-clear btn-remove-style" id="clear">Clear Completed</button>
               </div>
               
              
@@ -48,9 +49,9 @@
            
           </form>
 
-          <div class="sorting-bar-mobile">
+          <div class="sorting-bar-mobile light">
             <div class="sorting-bar-mobile__buttons-container">
-              <button class="sorting-bar-mobile__button btn-sort btn-remove-style" id="all">All</button>
+              <button class="sorting-bar-mobile__button btn-sort btn-remove-style active" id="all">All</button>
               <button class="sorting-bar-mobile__button btn-sort btn-remove-style" id="active">Active</button>
               <button class="sorting-bar-mobile__button btn-sort btn-remove-style" id="completed">Completed</button>
             </div>
