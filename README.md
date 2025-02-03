@@ -2,6 +2,8 @@
 
 This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
+![]()
+
 ### The challenge
 
 Users should be able to:
@@ -19,7 +21,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://todo-app-89.netlify.app/)
+- Live Site URL: [Toodo App](https://todo-app-89.netlify.app/)
 
 ### Built with
 
