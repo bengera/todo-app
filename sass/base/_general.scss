@@ -140,20 +140,6 @@ input[type="checkbox"] {
 
     
 }
-// For gradient css border
-// input[type="checkbox"]:before{
-//   content: "";
-//   position: absolute;
-//   z-index: -1;
-//   inset: 0;
-//   background: var(--c,linear-gradient(to right, #63b4ff, #a057ff));
-//   padding: var(--b);
-//   border-radius: 50%;
-//   mask: 
-//    linear-gradient(#000 0 0) exclude, 
-//    linear-gradient(#000 0 0) content-box;
-  
-// }
 
 .tasks.dark {
   background-color: $dark-color-dark-blue;
@@ -182,9 +168,7 @@ input[type="checkbox"] {
   }
   }
 
-  &__item-block {
-    // padding: 0.3rem;
-  }
+
 
   &__inner-item-block {
     display: flex;
@@ -229,7 +213,7 @@ input[type="checkbox"] {
 
  
   &__text {
-    // margin-left: 1rem;
+    
     cursor: pointer;
   }
 
